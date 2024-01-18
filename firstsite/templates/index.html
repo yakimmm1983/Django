@@ -1,46 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel= "stylesheet" href = "{% static 'css/stylesheet.css' %}" type = "text/css">
 </head>
 <body>
-{% extends 'base.html' %}
-{% block content %}
-    <h2>Первый шаблон</h2>
-    <div>
-        <a href="{% url 'first' %}">Another page</a>
-    </div>
-    {% if display_num %}
-    {{my_num}}
-    {% else %}
-    <span>Мы не отображаем числа</span>
-    {% endif %}
-    <div> {{ now| date:"SHORT_DATE_FORMAT" }} </div>
-    <div>{{ now| date:"D d M Y" }} {{value|time:"H:i" }}</div>
-    <div style = "border:1px darkblue solid">
-        {{my_str | capfirst}}
-    </div>
-    {% include 'add.html' %}
 
-        <div style = "border:1px darkblue solid">
-        {% for item in my_list %}
-        {% if forloop.counter0 != 1 %}
-        <p>{{ item }}</p>
-        <br>
-        {% endif %}
-        {% endfor %}
-
+    <div class="custom">
+        <p>Изображение<p>
+        <img src="{% static 'img/foto.jpg' %}">
     </div>
-    <div style = "border:1px darkblue solid">
-        {{my_list.0}}
-    </div>
-    <div style = "border:1px darkblue solid">
-        {{my_dict.some_key}}
-    </div>
-    <div style = "border:1px darkblue solid">
-        {{my_class.string}}
-    </div>
-{% endblock %}
 </body>
 </html>
+
+
+
